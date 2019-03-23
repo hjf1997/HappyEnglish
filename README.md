@@ -1,2 +1,0 @@
-# HappyEnglish
-AndroidClassFinalProject

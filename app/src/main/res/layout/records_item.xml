@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView_chapter"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:scaleType="centerCrop"
+            android:background="#FFDE03"/>
+
+        <TextView
+            android:id="@+id/textView_chapter_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Chapter Name"
+            android:layout_margin="10dp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            />
+
+        <TextView
+            android:id="@+id/textView_chapter_accuracy"
+            android:layout_marginBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Chapter Percent"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="15dp"/>
+
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
