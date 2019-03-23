@@ -104,7 +104,7 @@ public class DictationActivity extends ActivityCollector {
                             count += 1;
                         }
                     }else{
-                        if((int)msg.obj>=timesList.get(count)) {
+                        if((int)msg.obj>=timesList.get(count-1)) {
                             mediaPlayer.pause();
                             mediaPlayer.seekTo(0);
                             exit = false;
