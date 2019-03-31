@@ -1,6 +1,7 @@
 package com.example.happyenglish;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -33,6 +34,7 @@ import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -103,7 +105,21 @@ public class MainActivity extends ActivityCollector {
             ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE},1);
         }else{
             //把目录下所有.json文件读取出来
-            readJson();
+            FileUtils.getInstance(MainActivity.this).copyAssetsToSD("MyRecords","MyRecords").setFileOperateCallback(new FileUtils.FileOperateCallback() {
+                @Override
+                public void onSuccess() {
+                    // TODO: 文件复制成功时，主线程回调
+                    readJson();
+                    onWindowFocusChanged(true);
+                }
+
+                @Override
+                public void onFailed(String error) {
+                    // TODO: 文件复制失败时，主线程回调
+                    Toast.makeText(MainActivity.this, "Files read failed!", Toast.LENGTH_SHORT).show();
+                }
+            });
+
         }
 
     }
@@ -111,6 +127,9 @@ public class MainActivity extends ActivityCollector {
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
+        recordsList.clear();
+        recordsListRecords.clear();
+        readJson();
         LinearLayoutManager manager=new LinearLayoutManager(MainActivity.this);
         recyclerView_learning_records.setLayoutManager(manager);
         RecordAdapter adapter=new RecordAdapter(recordsList);
@@ -144,6 +163,23 @@ public class MainActivity extends ActivityCollector {
             case 1:
                 if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED &&grantResults[1]==PackageManager.PERMISSION_GRANTED){
                     //读取json
+                    //把目录下所有.json文件读取出来
+                    FileUtils.getInstance(MainActivity.this).copyAssetsToSD("MyRecords","MyRecords").setFileOperateCallback(new FileUtils.FileOperateCallback() {
+                        @Override
+                        public void onSuccess() {
+                            // TODO: 文件复制成功时，主线程回调
+                            readJson();
+                            onWindowFocusChanged(true);
+                        }
+
+                        @Override
+                        public void onFailed(String error) {
+                            // TODO: 文件复制失败时，主线程回调
+                            Toast.makeText(MainActivity.this, "Files read failed!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+
                 }else{
                     Toast.makeText(this, "Permission denied！", Toast.LENGTH_SHORT).show();
                     ActivityCollector.finishAll();
@@ -171,6 +207,7 @@ public class MainActivity extends ActivityCollector {
                             //这里读取出了文件
                             Gson gson=new Gson();
                             Records records=gson.fromJson(content,Records.class);
+                            //records.setName(file.getName());
                             recordsList.add(records);
                         }
                     }catch(Exception e){

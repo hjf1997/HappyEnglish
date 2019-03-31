@@ -1,0 +1,33 @@
+{
+    "accuracy": "",
+    "answers": [
+        "Listen to part of the lecture in a biology class.",
+        "Ok, today I'd like to spend some time going into more detail about symbiosis.",
+        "what is it? Anyone?",
+		"Um, I thought it's when two organisms are in a relationship that they both benefit from.",
+		"Well, at least that's what I thought it was until I did the reading last night.",
+		"Now, I am kind of confused about it, because the book used that definition to describe mutualism.",
+		"Could you explain the difference?",
+		"Good. I was hoping that someone would bring that up.",
+		"Sometimes scientists working in different fields use the term symbiosis to mean slightly different things.",
+		"And it can get confusing."
+    ],
+    "difficulty": "Easy",
+    "myAnswers": [
+    ],
+    "name": "TPO48-Mutualism",
+    "onProgress": true,
+    "progress": "5/10",
+    "times": [
+        "4",
+        "6",
+        "10",
+		"15",
+		"19",
+		"25",
+		"27",
+		"29",
+		"35",
+		"36"
+    ]
+}
