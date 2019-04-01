@@ -127,6 +127,9 @@ public class MainActivity extends ActivityCollector {
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
+        recordsList.clear();
+        recordsListRecords.clear();
+        readJson();
         LinearLayoutManager manager=new LinearLayoutManager(MainActivity.this);
         recyclerView_learning_records.setLayoutManager(manager);
         RecordAdapter adapter=new RecordAdapter(recordsList);
@@ -160,6 +163,23 @@ public class MainActivity extends ActivityCollector {
             case 1:
                 if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED &&grantResults[1]==PackageManager.PERMISSION_GRANTED){
                     //读取json
+                    //把目录下所有.json文件读取出来
+                    FileUtils.getInstance(MainActivity.this).copyAssetsToSD("MyRecords","MyRecords").setFileOperateCallback(new FileUtils.FileOperateCallback() {
+                        @Override
+                        public void onSuccess() {
+                            // TODO: 文件复制成功时，主线程回调
+                            readJson();
+                            onWindowFocusChanged(true);
+                        }
+
+                        @Override
+                        public void onFailed(String error) {
+                            // TODO: 文件复制失败时，主线程回调
+                            Toast.makeText(MainActivity.this, "Files read failed!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+
                 }else{
                     Toast.makeText(this, "Permission denied！", Toast.LENGTH_SHORT).show();
                     ActivityCollector.finishAll();
@@ -224,7 +244,7 @@ public class MainActivity extends ActivityCollector {
         });
 
         // 参数2,3：指明popupwindow的宽度和高度
-        popupWindow = new PopupWindow(popupView, 600, 600);
+        popupWindow = new PopupWindow(popupView,WindowManager.LayoutParams.MATCH_PARENT , WindowManager.LayoutParams.WRAP_CONTENT);
         WindowManager.LayoutParams lp = getWindow().getAttributes();
         lp.alpha = 0.4f;
         getWindow().setAttributes(lp);

@@ -12,7 +12,7 @@
 
   <TextView
       android:text="Title"
-      android:textSize="25dp"
+      android:textSize="15dp"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content" />
 
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:text="Title"
         android:textStyle="bold"
-        android:textSize="20dp"
+        android:textSize="10dp"
         android:textColor="#FFDE03"
         />
 
@@ -41,7 +41,7 @@
 
             <TextView
                 android:text="Progress"
-                android:textSize="25dp"
+                android:textSize="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:text="60%"
                 android:textStyle="bold"
-                android:textSize="20dp"
+                android:textSize="10dp"
                 android:textColor="#FFDE03"
                 />
 
@@ -68,7 +68,7 @@
 
             <TextView
                 android:text="Difficulty"
-                android:textSize="25dp"
+                android:textSize="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -78,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:text="Amazing"
                 android:textStyle="bold"
-                android:textSize="20dp"
+                android:textSize="10dp"
                 android:textColor="#FFDE03"
                 />
 
@@ -92,7 +92,7 @@
     <Button
         android:layout_marginTop="10dp"
         android:id="@+id/button_start_chapter"
-        android:layout_width="200dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:background="@drawable/button_round_corner"
         android:textColor="#FFFFFF"
