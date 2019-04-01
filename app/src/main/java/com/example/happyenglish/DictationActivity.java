@@ -400,7 +400,7 @@ public class DictationActivity extends ActivityCollector {
 
 
         // 参数2,3：指明popupwindow的宽度和高度
-        popupWindow = new PopupWindow(popupView, 800, 1000);
+        popupWindow = new PopupWindow(popupView, 300, 600);
         WindowManager.LayoutParams lp = getWindow().getAttributes();
         lp.alpha = 0.4f;
         getWindow().setAttributes(lp);

@@ -12,7 +12,7 @@
 
   <TextView
       android:text="Title"
-      android:textSize="25dp"
+      android:textSize="15dp"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content" />
 
@@ -41,7 +41,7 @@
 
             <TextView
                 android:text="Progress"
-                android:textSize="25dp"
+                android:textSize="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -68,7 +68,7 @@
 
             <TextView
                 android:text="Difficulty"
-                android:textSize="25dp"
+                android:textSize="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
