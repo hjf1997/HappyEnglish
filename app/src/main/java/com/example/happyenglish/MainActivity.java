@@ -244,11 +244,7 @@ public class MainActivity extends ActivityCollector {
         });
 
         // 参数2,3：指明popupwindow的宽度和高度
-<<<<<<< HEAD
         popupWindow = new PopupWindow(popupView,WindowManager.LayoutParams.MATCH_PARENT , WindowManager.LayoutParams.WRAP_CONTENT);
-=======
-        popupWindow = new PopupWindow(popupView, 300, 300);
->>>>>>> 846aeb9f53607347783cac1822c0b3c9e1a1f941
         WindowManager.LayoutParams lp = getWindow().getAttributes();
         lp.alpha = 0.4f;
         getWindow().setAttributes(lp);
